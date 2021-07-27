@@ -1,6 +1,8 @@
 # Platformer Prototype
  Um jogo de plataforma 2D feito em Unity.
 
+Vídeo de gameplay: https://youtu.be/-jj6amwv_vg
+
 Como jogar:
 - WASD ou setas para andar
 - Espaço para pular
