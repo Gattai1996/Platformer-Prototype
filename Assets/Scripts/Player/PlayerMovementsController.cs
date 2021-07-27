@@ -6,12 +6,12 @@ public class PlayerMovementsController : MonoBehaviour
     [SerializeField] private float _jumpSpeed;
     private bool _isOnGround;
     private Rigidbody2D _rigidbody2D;
-    private PlayerAnimationsController _playerAnimationsController;
+    private AnimationsController _playerAnimationsController;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _playerAnimationsController = GetComponent<PlayerAnimationsController>();
+        _playerAnimationsController = GetComponent<AnimationsController>();
     }
 
     private void Update()
@@ -46,5 +46,19 @@ public class PlayerMovementsController : MonoBehaviour
         {
             _playerAnimationsController.SetSpriteFlip(false);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.layer == 10)
+        {
+            Destroy(collision.collider.transform.parent.gameObject);
+            ApllyForce(5);
+        }
+    }
+
+    public void ApllyForce(int multiplier)
+    {
+        _rigidbody2D.AddForce(Vector2.up * multiplier, ForceMode2D.Impulse);
     }
 }

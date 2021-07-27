@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class PlayerAnimationsController : MonoBehaviour
+public class AnimationsController : MonoBehaviour
 {
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    public bool SpriteIsFlipped { get; private set; }   
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteIsFlipped = _spriteRenderer.flipX;
     }
 
     public void TriggerAnimation(string animationParameter)
@@ -24,5 +26,6 @@ public class PlayerAnimationsController : MonoBehaviour
     public void SetSpriteFlip(bool isFlipped)
     {
         _spriteRenderer.flipX = isFlipped;
+        SpriteIsFlipped = isFlipped;
     }
 }
