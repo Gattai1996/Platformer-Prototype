@@ -16,4 +16,5 @@ Features:
 - Sistema de vida e coleta de moedas
 - Interface de usuário que mostra a vida e moedas para o jogador
 - Inimigo com animações e IA básica que anda de um lado para o outro
-- Jogador consegue derrotar inimigos pulando sobre a cabeça do mesmo- Cenário com background parallax infinito e tilemaps
+- Jogador consegue derrotar inimigos pulando sobre a cabeça do mesmo
+- Cenário com background parallax infinito e tilemaps
