@@ -44,8 +44,14 @@ TagManager:
   - name: Background
     uniqueID: 1687408047
     locked: 0
+  - name: Water
+    uniqueID: 1907194773
+    locked: 0
   - name: Ground
     uniqueID: 2991187695
+    locked: 0
+  - name: Enemy
+    uniqueID: 2173130125
     locked: 0
   - name: Player
     uniqueID: 2731383247
