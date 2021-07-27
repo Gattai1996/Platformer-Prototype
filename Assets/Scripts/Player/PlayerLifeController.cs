@@ -9,11 +9,13 @@ public class PlayerLifeController : MonoBehaviour
     private PlayerMovementsController _playerMovementsController;
     [SerializeField] private LayerMask _layerMask;
     private bool _delayDamage;
+    private AnimationsController _animationsController;
 
     private void Start()
     {
         _collider2D = GetComponent<CapsuleCollider2D>();
         _playerMovementsController = GetComponent<PlayerMovementsController>();
+        _animationsController = GetComponent<AnimationsController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,7 +25,8 @@ public class PlayerLifeController : MonoBehaviour
             _hitPoints--;
             StartCoroutine(DelayDamage());
             UserInterfaceManager.Singleton.SetPlayerLife(_hitPoints);
-            _playerMovementsController.ApllyForce(3);
+            _playerMovementsController.ApllyForce(3, true);
+            _animationsController.TriggerAnimation("Hurt");
 
             if (_hitPoints <= 0)
             {

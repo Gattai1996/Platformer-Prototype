@@ -53,12 +53,17 @@ public class PlayerMovementsController : MonoBehaviour
         if (collision.collider.gameObject.layer == 10)
         {
             Destroy(collision.collider.transform.parent.gameObject);
-            ApllyForce(5);
+            ApllyForce(5, false);
         }
     }
 
-    public void ApllyForce(int multiplier)
+    public void ApllyForce(int multiplier, bool backForce)
     {
         _rigidbody2D.AddForce(Vector2.up * multiplier, ForceMode2D.Impulse);
+
+        if (backForce)
+        {
+            _rigidbody2D.AddForce(transform.forward * -1 * multiplier, ForceMode2D.Impulse);
+        }
     }
 }
